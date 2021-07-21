@@ -29,4 +29,4 @@ RUN mkdir /pkg-cahce && \
     pkg-fetch -n node14 -a x64 -p win && \
     pkg-fetch -n node14 -a armv7 -p linuxstatic 
 
-ENV PKG_CACHE_PATH=/pkg-cahce
+ENV PKG_CACHE_PATH=/pkg-cache
