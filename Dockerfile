@@ -12,7 +12,7 @@ RUN npm config set registry https://registry.npm.taobao.org && \
     yarn config set selenium_cdnurl https://npm.taobao.org/mirrors/selenium && \
     yarn config set node_inspector_cdnurl https://npm.taobao.org/mirrors/node-inspector 
 
-RUN npm install -g node-notifier pkg-fetch@3.2.0 pkg && \
+RUN npm install -g node-notifier git:pkg && \
     mkdir /pkg
 
 RUN export PKG_CACHE_PATH=/pkg && \
