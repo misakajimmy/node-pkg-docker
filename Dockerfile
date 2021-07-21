@@ -1,5 +1,7 @@
 FROM node:12
 
+COPY pkg /usr/bin/pkg
+
 RUN npm config set registry https://registry.npm.taobao.org && \
     yarn config set registry http://registry.npm.taobao.org/ && \
     yarn config set sass_binary_site https://npm.taobao.org/mirrors/node-sass && \
@@ -12,10 +14,11 @@ RUN npm config set registry https://registry.npm.taobao.org && \
     yarn config set selenium_cdnurl https://npm.taobao.org/mirrors/selenium && \
     yarn config set node_inspector_cdnurl https://npm.taobao.org/mirrors/node-inspector 
 
-RUN npm install -g node-notifier pkg pkg-fetch@3.1.1 && \
-    mkdir /pkg
+RUN npm install -g pkg-fetch && \
+    chmod a+x /usr/bin/pkg
 
-RUN export PKG_CACHE_PATH=/pkg && \
+RUN mkdir /pkg-cahce && \
+    export PKG_CACHE_PATH=/pkg-cache && \
     pkg-fetch -n node10 -a x64 && \
     pkg-fetch -n node10 -a x64 -p win && \
     pkg-fetch -n node10 -a arm64 && \
@@ -29,4 +32,4 @@ RUN export PKG_CACHE_PATH=/pkg && \
     pkg-fetch -n node14 -a arm64 -p linuxstatic && \
     pkg-fetch -n node14 -a arm64
 
-ENV PKG_CACHE_PATH=/pkg 
+ENV PKG_CACHE_PATH=/pkg-cahce
