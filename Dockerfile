@@ -17,7 +17,7 @@ RUN npm config set registry https://registry.npm.taobao.org && \
 RUN npm install -g pkg-fetch && \
     chmod a+x /usr/bin/pkg
 
-RUN mkdir /pkg-cahce && \
+RUN mkdir /pkg-cache && \
     export PKG_CACHE_PATH=/pkg-cache && \
     pkg-fetch -n node10 -a x64 -p linux && \
     pkg-fetch -n node10 -a x64 -p win && \
