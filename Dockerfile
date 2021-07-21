@@ -17,19 +17,16 @@ RUN npm config set registry https://registry.npm.taobao.org && \
 RUN npm install -g pkg-fetch && \
     chmod a+x /usr/bin/pkg
 
-RUN mkdir /pkg-cache && \
+RUN mkdir /pkg-cahce && \
     export PKG_CACHE_PATH=/pkg-cache && \
     pkg-fetch -n node10 -a x64 -p linux && \
     pkg-fetch -n node10 -a x64 -p win && \
-    pkg-fetch -n node10 -a armv7 -p linux && \
     pkg-fetch -n node10 -a armv7 -p linuxstatic && \
     pkg-fetch -n node12 -a x64 -p linux && \
     pkg-fetch -n node12 -a x64 -p win && \
-    pkg-fetch -n node12 -a armv7 -p linux && \  
     pkg-fetch -n node12 -a armv7 -p linuxstatic && \
     pkg-fetch -n node14 -a x64 -p linux && \
     pkg-fetch -n node14 -a x64 -p win && \
-    pkg-fetch -n node14 -a armv7 -p linux && \
     pkg-fetch -n node14 -a armv7 -p linuxstatic 
 
 ENV PKG_CACHE_PATH=/pkg-cache
