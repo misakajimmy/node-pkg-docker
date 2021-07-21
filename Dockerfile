@@ -17,10 +17,13 @@ RUN npm install -g node-notifier pkg pkg-fetch && \
 
 RUN export PKG_CACHE_PATH=/pkg && \
     pkg-fetch -n node10 -a x64 && \
+    pkg-fetch -n node10 -a x64 -p win && \
     pkg-fetch -n node10 -a arm64 && \
     pkg-fetch -n node12 -a x64 && \
+    pkg-fetch -n node12 -a x64 -p win && \
     pkg-fetch -n node12 -a arm64 && \
     pkg-fetch -n node14 -a x64 && \
+    pkg-fetch -n node14 -a x64 -p win && \
     pkg-fetch -n node14 -a arm64
 
-ENV PKG_CACHE_PATH=/pkg
+ENV PKG_CACHE_PATH=/pkg 
